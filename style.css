@@ -1,0 +1,45 @@
+body {
+    background-color: #f8f9fa;
+  }
+
+  .container {
+    margin-top: 50px;
+  }
+
+  h1 {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  textarea {
+    resize: frombuttom;
+  }
+
+  #top-link {
+    background-color: transparent;
+  }
+
+  a {
+    display: inline-block;
+    border-radius: 25px;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    overflow: hidden;
+  }
+
+  .button {
+    margin-top: 10px;
+    background-color: rgb(47, 44, 44);
+    border: 1px solid rgb(47, 44, 44);
+  }
+
+  .result-line {
+    border: 1px solid #f8f9fa;
+    background-color: #f8f9fa;
+  }
+
+  .results {
+    margin-top: 20px;
+  }
