@@ -1,27 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Google Dork Generator</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <!-- Bootstrap stylesheets -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
+<head>
+  <meta charset="UTF-8">
+  <title>Dork Generator</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" id="top-link" href="#">Dork Generator</a>
+      <!-- Button to toggle the guide -->
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#guideContent" aria-expanded="false" aria-controls="guideContent">
+        Open Guide
+      </button>
+    </div>
+  </nav>
 
-    <!-- CSS stylesheets -->
-    <link rel="stylesheet" type="text/css" href="style.css" />
-  </head>
-  <body class="light-mode">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand" id="top-link" href="#">Google Dork Generator</a>
+  <div class="container">
+    <!-- Guide content collapsible section -->
+    <div class="collapse" id="guideContent">
+      <div class="card card-body">
+        <h2>Using the Dork Generator</h2>
+        <div class="card">
+          <div class="card-header">1. Enter a Domain</div>
+          <div class="card-body">
+            <p class="card-text">
+              Input the target domain (e.g., example.com) in the "Enter Domain"
+              field.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">2. Add Google Dorks</div>
+          <div class="card-body">
+            <p class="card-text">
+              In the "Add Google Dorks" section, type or paste the Google dorks
+              you want to use. Each dork should be on a separate line. Replace
+              {Domain} with the target domain where needed.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">3. Add GitHub Dorks</div>
+          <div class="card-body">
+            <p class="card-text">
+              Similarly, in the "Add GitHub Dorks" section, enter the GitHub
+              dorks you want to use, each on a new line.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">4. Generate Dorks Links</div>
+          <div class="card-body">
+            <p class="card-text">
+              Click the "Generate Dorks Link" button. The tool will create Google
+              and GitHub dorks links based on your input.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">5. Review the Results</div>
+          <div class="card-body">
+            <p class="card-text">
+              Explore the generated dorks links displayed in the table. Each link
+              represents a specific search query tailored to your target domain
+              or GitHub repository.
+            </p>
+          </div>
+        </div>
       </div>
-    </nav>
+    </div>
 
     <div class="container">
-      <h1>Google Dork Generator</h1>
+      <h1>Dork Generator</h1>
 
       <div class="card">
         <div class="card-header">Enter a domain</div>
@@ -35,16 +93,44 @@
         </div>
       </div>
 
-      <div class="card mt-3">
-        <div class="card-header">Add your Dorks</div>
+      <div class="card">
+        <div class="card-header">Add Google Dorks</div>
         <div class="card-body">
           <textarea
             class="form-control"
-            id="userDorks"
-            placeholder="Add your own Dorks"
-            row="1"
+            id="googleDorks"
+            placeholder="Add Google Dorks"
+            row="3"
             oninput="autoSize(this)"
-          ></textarea>
+          >
+site:{Domain} ext:php | ext:aspx | ext:asp | ext:jsp | ext:html | ext:htm
+site:{Domain} ext:log | ext:txt | ext:conf | ext:cnf | ext:ini | ext:env | ext:sh | ext:bak | ext:backup | ext:swp | ext:old | ext:~ | ext:git | ext:svn | ext:htpasswd | ext:htaccess | ext:xml
+site:{Domain} inurl:url= | inurl:return= | inurl:next= | inurl:redir= inurl:http
+site:{Domain} inurl:http | inurl:url= | inurl:path= | inurl:dest= | inurl:html= | inurl:data= | inurl:domain= | inurl:page= inurl:&
+site:{Domain} inurl:config | inurl:env | inurl:setting | inurl:backup | inurl:admin | inurl:php
+site:{Domain} inurl:email= | inurl:phone= | inurl:password= | inurl:secret= inurl:&
+site:{Domain} inurl:apidocs | inurl:api-docs | inurl:swagger | inurl:api-explorer
+site:{Domain} inurl:cmd | inurl:exec= | inurl:query= | inurl:code= | inurl:do= | inurl:run= | inurl:read= | inurl:ping= inurl:&
+site:{Domain} inurl:(unsubscribe|register|feedback|signup|join|contact|profile|user|comment|api|developer|affiliate|upload|mobile|upgrade|password)
+site:{Domain} intitle:"Welcome to Nginx"
+          </textarea>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">Add GitHub Dorks</div>
+        <div class="card-body">
+          <textarea
+            class="form-control"
+            id="githubDorks"
+            placeholder="Add GitHub Dorks"
+            row="3"
+            oninput="autoSize(this)"
+          >
+({Domain}) AND ("pwd" OR "ftp" OR "dotfiles" OR "JDBC" OR "key-keys" OR "send_key-keys" OR "send%2Ckey-keys" OR "token" OR "user" OR "login-singin")
+({Domain}) AND ("passkey-passkeys" OR "pass" OR "secret" OR "SecretAccessKey" OR "app_AWS_SECRET_ACCESS_KEY+AWS_SECRET_ACCESS_KEY")
+({Domain}) AND ("credentials" OR "config" OR "security_credentials" OR "connectionstring" OR "ssh2_auth_password" OR "DB_PASSWORD")
+          </textarea>
         </div>
       </div>
 
@@ -52,7 +138,7 @@
         Generate Dorks Link
       </button>
 
-      <div class="results mt-3" id="results"></div>
+      <div class="table-container" id="results"></div>
     </div>
 
     <!-- Bootstrap and jQuery JavaScript files -->
@@ -64,59 +150,93 @@
       function generateLinks() {
         var domain = document.getElementById("domain").value.trim();
 
-        // Default dorks
-        var dorks = [
-          'inurl:&',
-          'ext:php | ext:aspx | ext:asp | ext:jsp | ext:html | ext:htm',
-          'ext:log | ext:txt | ext:conf | ext:cnf | ext:ini | ext:env | ext:sh | ext:bak | ext:backup | ext:swp | ext:old | ext:~ | ext:git | ext:svn | ext:htpasswd | ext:htaccess | ext:xml',
-          'inurl:url= | inurl:return= | inurl:next= | inurl:redir= inurl:http',
-          'inurl:http | inurl:url= | inurl:path= | inurl:dest= | inurl:html= | inurl:data= | inurl:domain= | inurl:page= inurl:&',
-          'inurl:config | inurl:env | inurl:setting | inurl:backup | inurl:admin | inurl:php',
-          'inurl:email= | inurl:phone= | inurl:password= | inurl:secret= inurl:&',
-          'inurl:apidocs | inurl:api-docs | inurl:swagger | inurl:api-explorer',
-          'inurl:cmd | inurl:exec= | inurl:query= | inurl:code= | inurl:do= | inurl:run= | inurl:read= | inurl:ping= inurl:&',
-          'inurl:(unsubscribe|register|feedback|signup|join|contact|profile|user|comment|api|developer|affiliate|upload|mobile|upgrade|password)',
-          'intitle:"Welcome to Nginx"'
-        ];
+        // Google Dorks
+        var googleDorks = getDorks("googleDorks", domain);
 
-        // Add user's dorks if provided
-        var userDorks = document.getElementById("userDorks").value.trim();
-        if (userDorks !== "") {
-          dorks = dorks.concat(userDorks.split("\n"));
-        }
+        // GitHub Dorks
+        var githubDorks = getDorks("githubDorks", domain);
 
-        var resultsDiv = document.getElementById("results");
-        resultsDiv.innerHTML = "";
+        var tableContainer = document.getElementById("results");
+        tableContainer.innerHTML = "";
+
+        var table = document.createElement("table");
+        table.classList.add("table", "table-striped", "table-bordered");
+
+        var thead = document.createElement("thead");
+        var headerRow = document.createElement("tr");
+
+        var todoTh = document.createElement("th");
+        todoTh.textContent = "Todo (Checked)";
+        headerRow.appendChild(todoTh);
+
+        var dorkTh = document.createElement("th");
+        dorkTh.textContent = "Dork";
+        headerRow.appendChild(dorkTh);
+
+        var platformTh = document.createElement("th");
+        platformTh.textContent = "Platform";
+        headerRow.appendChild(platformTh);
+
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+
+        var tbody = document.createElement("tbody");
 
         var links = new Set(); // Use a Set to store unique links
 
-        dorks.forEach(function (dork) {
-          var fullDork = "site:" + domain + " " + dork;
+        googleDorks.forEach(function (dork) {
+          var fullDork = dork.replace("{Domain}", domain);
           var link =
             "https://www.google.com/search?q=" + encodeURIComponent(fullDork);
-
-          // Check if link already exists in the Set
-          if (!links.has(link)) {
-            links.add(link); // Add the link to the Set
-
-            // Create a new div element for the result line
-            var resultLine = document.createElement("div");
-            resultLine.className = "result-line bg-lightblue p-2 mb-1 rounded";
-
-            // Create a new link element for the full dork
-            var linkElement = document.createElement("a");
-            linkElement.href = link;
-            linkElement.class = "dork-link";
-            linkElement.target = "_blank";
-            linkElement.textContent = fullDork;
-
-            // Append the link element to the result line
-            resultLine.appendChild(linkElement);
-
-            // Append the result line to the results div
-            resultsDiv.appendChild(resultLine);
-          }
+          addDorkRow(tbody, domain, fullDork, link, "Google", links);
         });
+
+        githubDorks.forEach(function (dork) {
+          // Replace {domain} with the actual domain
+          dork = dork.replace("{Domain}", domain);
+          var link =
+            "https://github.com/search?q=" + encodeURIComponent(dork);
+          addDorkRow(tbody, domain, dork, link, "GitHub", links);
+        });
+
+        table.appendChild(tbody);
+        tableContainer.appendChild(table);
+      }
+
+      function getDorks(elementId, domain) {
+        var dorks = document.getElementById(elementId).value.trim();
+        if (dorks !== "") {
+          return dorks.split("\n");
+        }
+        return [];
+      }
+
+      function addDorkRow(tbody, domain, dork, link, platform, links) {
+        // Check if link already exists in the Set
+        if (!links.has(link)) {
+          links.add(link); // Add the link to the Set
+
+          var row = document.createElement("tr");
+
+          var todoCell = document.createElement("td");
+          todoCell.innerHTML = '<input type="checkbox" />';
+          row.appendChild(todoCell);
+
+          var dorkCell = document.createElement("td");
+          var linkElement = document.createElement("a");
+          linkElement.href = link;
+          linkElement.classList.add("dork-link");
+          linkElement.target = "_blank";
+          linkElement.textContent = dork;
+          dorkCell.appendChild(linkElement);
+          row.appendChild(dorkCell);
+
+          var platformCell = document.createElement("td");
+          platformCell.textContent = platform;
+          row.appendChild(platformCell);
+
+          tbody.appendChild(row);
+        }
       }
 
       function autoSize(textarea) {
@@ -140,5 +260,7 @@
         }
       }
     </script>
-  </body>
+
+  </div>
+</body>
 </html>
